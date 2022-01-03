@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://demo-angularapp-nalsolution.herokuapp.com/")
 @RequestMapping(path = "/api/v1/works")
 public class WorkController {
     @Autowired
