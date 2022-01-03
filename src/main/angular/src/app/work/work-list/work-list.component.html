@@ -14,8 +14,8 @@
       <tr class="bg-table-header">
         <th scope="col" width="50px">No.</th>
         <th scope="col">Name work</th>
-        <th scope="col" width="100px">Date Starting</th>
-        <th scope="col" width="100px">Date Ending</th>
+        <th scope="col" width="120px">Date Starting</th>
+        <th scope="col" width="120px">Date Ending</th>
         <th scope="col" width="60px">Status</th>
         <th scope="col" width="50px">Edit</th>
         <th scope="col" width="60px">Delete</th>
@@ -30,12 +30,13 @@
         <td>{{work.status}}</td>
         <td>
           <button class="btn btn-success" [disabled]="false"
-                  [routerLink]="['/import-and-export/' + work.id ]">Edit
+                  (click)="onClickEdit(work.id + '/' + work.workName + '/' +  work.startingDate + '/' + work.endingDate + '/' + work.status)">
+            Edit
           </button>
         </td>
         <td>
           <button class="btn btn-success" [disabled]="false"
-                  [routerLink]="['/import-and-export/' + work.id ]">Delete
+                  (click)="onClickDelete(work.id)">Delete
           </button>
         </td>
       </tr>

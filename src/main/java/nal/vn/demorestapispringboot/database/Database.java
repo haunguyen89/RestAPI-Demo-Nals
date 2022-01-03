@@ -34,9 +34,13 @@ public class Database {
                         }
                         Work WorkA;
                         if (k < 10) {
-                            WorkA = new Work("Work " + i, "20220" + j + "0" + k, "20220" + (j + 3) + "0" + k, "" + i % 3);
+                            WorkA = new Work("Work " + i, "2022-0" + j + "-0" + k, "2022-0" + (j + 3) + "-0" + k, "Doing");
                         } else {
-                            WorkA = new Work("Work " + i, "20220" + j + k, "20220" + (j + 3) + "0" + k, "" + i % 3);
+                            if (i%2 == 0) {
+                                WorkA = new Work("Work " + i, "2022-0" + j + "-" + k, "2022-0" + (j + 3) + "-" + k, "Complete");
+                            } else {
+                                WorkA = new Work("Work " + i, "2022-0" + j + "-" + k, "2022-0" + (j + 3) + "-" + k, "Planning");
+                            }
                         }
                         logger.info("insert data:" + WorkRepositories.save(WorkA));
                         k++;

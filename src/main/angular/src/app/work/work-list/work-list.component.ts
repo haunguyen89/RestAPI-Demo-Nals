@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {IWorkDTO} from "../../entity/IWorkDTO";
 import {WorkService} from "../work.service";
+import {Router} from "@angular/router";
+import {AlertService} from "../alert.service";
 
 @Component({
   selector: 'app-work-list',
@@ -15,12 +17,12 @@ export class WorkListComponent implements OnInit {
   works: IWorkDTO[] = [];
   listWorkNotPagination: IWorkDTO[] = [];
 
-  constructor(private workService: WorkService) {
+  constructor(private workService: WorkService, private router: Router,
+              private alertService: AlertService) {
   }
 
   ngOnInit(): void {
     this.workService.getAllWork(this.indexPagination, this.sizePagination, "workName", "false").subscribe((data: IWorkDTO[]) => {
-      console.log("hehehe", this.works.length);
       this.works = data;
     });
 
@@ -72,4 +74,17 @@ export class WorkListComponent implements OnInit {
     })
   }
 
+  onClickDelete(id: string) {
+    this.workService.deleteWorkDTO(id).subscribe(data => {
+      this.ngOnInit()
+      this.alertService.showMessage("Delete work successFull!");
+    }, error => {
+      this.alertService.showMessageErrors("Delete work Error!")
+    })
+  }
+
+  onClickEdit(id: string) {
+    this.workService.setFlagEdit(id);
+    this.router.navigateByUrl('/work-create');
+  }
 }

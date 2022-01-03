@@ -8,10 +8,10 @@ export class AlertService {
 
   constructor(private toast: ToastrService) { }
   showMessage(message: string | "undefined"){
-    this.toast.success(message, "Thông báo:");
+    this.toast.success(message, "Notification:");
   }
 
   showMessageErrors(message: string | "undefined"){
-    this.toast.error(message, "Thông báo:")
+    this.toast.error(message, "Notification:")
   }
 }
