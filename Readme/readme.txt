@@ -13,3 +13,4 @@
 3. Test API with full infomation in file <RestAPI-Demo-Nals\Readme\envident_REST_API.xlsx>
 4. You can test local with source code Or run with
 	- test API: https://demo-springboot-nalsolution.herokuapp.com/api/v1/works
+	- test Angular app: https://demo-angularapp-nalsolution.herokuapp.com
